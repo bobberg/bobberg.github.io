@@ -12,22 +12,22 @@ const detailPageShow = new TimelineMax({
 cardBarShowDetails.to('#home-page', 0.5, {
   padding: 0,
 }, 'start')
-  .to('.card-bar', 0.5, {
+  .to('.card-bar', 0.1, {
     width: '100%',
   }, 'start')
-  .from('.card-bar-graph', 1, {
+  .from('.card-bar-graph', 0.25, {
     height: 0,
-  }, 'start+=0.5')
-  .from('.card-bar-details', 1, {
+  }, 'start+=0')
+  .from('.card-bar-details', 0.1, {
     height: 0,
     opacity: 0,
     paddinstag: 0,
-  }, 'start+=0.5')
-  .staggerFrom('.card-bar-small', 0.5, {
+  }, 'start+=0')
+  .staggerFrom('.card-bar-small', 0.25, {
     opacity: 0,
     y: '-100%',
     ease: Back.easeOut.config(2),
-  }, 0.25, 'start+=1')
+  }, 0.25, 'start+=0.25')
 /*
   .staggerFrom('.card-details', 0.5, {
     opacity: 1,
@@ -36,21 +36,21 @@ cardBarShowDetails.to('#home-page', 0.5, {
   }, 0.25, 'start+=1')
 */
 
-detailPageShow.to('#card-product-detail', 1, {
+detailPageShow.to('#card-product-detail', 0.5, {
   rotationY: '180deg',
 }, 'start')
-  .to('#home-page', 0.2, {
+  .to('#home-page', 0.25, {
     padding: 0,
-  }, 'start')
-  .to('#card-product-detail .x', 0.5, {
+  }, 0.25, 'start')
+  .to('#card-product-detail .x', 0.25, {
     opacity: 0,
   }, 'start+=0.1')
-  .to('#card-product-detail', 0.5, {
-    padding: '0.3'
-  }, 'start+=0.1')
-  .staggerFrom('#detail-page .card-main', 0.5, {
+  /*.to('#card-product-detail', 0.25, {
+
+  }, 'start+=1')*/
+  .staggerFrom('#detail-page .card-main', 0.25, {
     x: '-200%',
-  }, 0.5, 'start+=0.2')
+  }, 0.25, 'start+=0.1')
 /*
 hideDetailPage.to('#card-product-detail', 1, {
   rotationY:'180deg'
