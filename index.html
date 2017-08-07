@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./style.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'UK', 'DE'],
+          [      ,  58,    54],
+          ['2013',  59,    55],
+          [      ,  57,    56],
+          [      ,  54,    56],
+          ['2014',  55,    58],
+          [      ,  56,    57],
+          [      ,  58,    57],
+          ['2015',  61,    61],
+          [      ,  62,    64],
+          [      ,  63,    62],
+          ['2016',  66,    63],
+          [      ,  61,    65]
+
+        ]);
+
+        var options = {
+          title: 'bounce rate',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 50, maxValue: 70},
+          fontName: 'Open Sans'
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div id="header">
+        <div id="navbar">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <div class="title">
+            <h1>site structure</h1>
+          </div>
+          <i class="fa fa-times" aria-hidden="true" onclick="hideDetailPage()"></i>
+        </div>
+        <div class="intro">
+          <p>let's look at the <span>bounce rate</span></p>
+        </div>
+      </div>
+      <div id="home-page">
+        <!--
+        <div id="filter-container">
+          <div id="filter" class="toggleable-closed">
+            <h3 class="fa fa-sliders">"Filter"<i class="fa fa-angle-double-down"></h3>
+          </div>
+        </div>
+        -->
+        <div class="card-main" >
+          <div class="card-title f-purple f-extra-bold">home</div>
+          <div class="card-percent f-big">
+            <img src="./src/icon-bounce.png" alt="icon">
+            68.8<span class="f-small">%<span>
+          </div>
+          <div class="card-sub-title f-small f-gray">
+            Bounce rate
+            <span class="grow-percent f-red"><i class="fa fa-caret-down" aria-hidden="true"></i>5% MoM</span>
+          </div>
+          <div class="card-graph-small">
+            <img src="./src/graph-small.png" alt="graph">
+          </div>
+        </div>
+
+        <div class="card-bar" style='width:50%' onclick='startCardBarDetailShow(this)'>
+          <div class="percent f-big">50.7%</div>
+          <div class="grow f-green f-small"><i class="fa fa-caret-up" aria-hidden="true"></i>5% MoM</div>
+          <div class="card-bar-graph">
+            <div class="card-bar-graph">
+            <div id="chart_div" style="width: 50%; height: 200px; mix-blend-mode: multiply;"></div>
+            </div>
+          </div>
+          <div class="card-bar-details">
+            <div class="card-bar-small">
+              <img src="./src/icon-bounce.png" alt="">
+              <div class="number f-large f-bold">65$</div>
+              <p class="f-small">adv</p>
+              <span class="grow-percent f-red f-small"><i class="fa fa-caret-down" aria-hidden="true"></i>2% MoM</span>
+            </div>
+            <div class="card-bar-small">
+              <img src="./src/icon-bounce.png" alt="">
+              <div class="number f-large f-bold">-12m$</div>
+              <p class="f-small">revenue</p>
+              <span class="grow-percent f-green f-small"><i class="fa fa-caret-up" aria-hidden="true"></i>2.3% MoM</span>
+            </div>
+            <div class="card-bar-small">
+              <img src="./src/icon-bounce.png" alt="">
+              <div class="number f-large f-bold">20.000</div>
+              <p class="f-small">visits</p>
+              <span class="grow-percent f-green f-small"><i class="fa fa-caret-up" aria-hidden="true"></i>1% MoM</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="card-product-detail" class="card-main" onclick='startDetailPageShow()'>
+            <div class="x card-title f-purple f-extra-bold">product detail page</div>
+            <div class="x card-percent f-big">
+              <img src="./src/icon-bounce.png" alt="icon">
+              34.5<span class="f-small">%<span>
+            </div>
+            <div class="x card-sub-title f-small f-gray">
+              Bounce rate
+              <span class="grow-percent f-red"><i class="fa fa-caret-down" aria-hidden="true"></i>1% MoM</span>
+            </div>
+            <div class="x card-graph-small">
+              <img src="./src/graph-small.png" alt="graph">
+            </div>
+          </div>
+
+            <div id="detail-page">
+              <div class="card-main card-detail">
+                <div class="card-percent f-big">
+                  <img src="./src/icon-bounce.png" alt="icon">
+                  30.1<span class="f-small">%<span>
+                  </div>
+                  <div class="card-sub-title f-small f-gray">
+                    Bounce rate
+                    <span class="grow-percent f-green"><i class="fa fa-caret-up" aria-hidden="true"></i>2% MoM</span>
+                  </div>
+                  <div class="card-graph-small">
+                    <img src="./src/graph-small.png" alt="graph">
+                  </div>
+                <div class="card-main card-detail-zoom">
+                </div>
+
+                <div class="card-main card-detail">
+                  <div class="card-percent f-big">
+                    <img src="./src/icon-conversion.png" alt="icon">
+                    132<span class="f-small">%<span>
+                    </div>
+                    <div class="card-sub-title f-small f-gray">
+                      Conversion
+                      <span class="grow-percent f-red"><i class="fa fa-caret-down" aria-hidden="true"></i>4% MoM</span>
+                    </div>
+                    <div class="card-graph-small">
+                      <img src="./src/graph-small.png" alt="graph">
+                    </div>
+                  </div>
+
+                  <div class="card-main card-detail">
+                    <div class="card-percent f-big">
+                      <img src="./src/icon-exit.png" alt="icon">
+                      10.9<span class="f-small">%<span>
+                      </div>
+                      <div class="card-sub-title f-small f-gray">
+                        Exit rate
+                        <span class="grow-percent f-green"><i class="fa fa-caret-up" aria-hidden="true"></i>31% MoM</span>
+                      </div>
+                      <div class="card-graph-small">
+                        <img src="./src/graph-small.png" alt="graph">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+  </body>
+  <script src="https://use.fontawesome.com/1e6722a1c0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+  <script src="./main.js"></script>
+</html>
